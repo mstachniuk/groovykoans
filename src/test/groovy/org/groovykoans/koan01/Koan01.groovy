@@ -58,6 +58,7 @@ class Koan01 extends GroovyTestCase {
         // ------------ START EDITING HERE ----------------------
         def text = "Hello George, how are you?"
         result = "The size of the string '${text}' is ${text.size()}"
+        // result = "The size of the string '${greeting}' is ${greeting.size()}"
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -74,6 +75,7 @@ class Koan01 extends GroovyTestCase {
         // ------------ START EDITING HERE ----------------------
         result = ''
         map.each {result += it.value}
+        // result = map['right'] + map['left']
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -138,6 +140,7 @@ class Koan01 extends GroovyTestCase {
         def message
         // ------------ START EDITING HERE ----------------------
         message = "Hello ${userService.getLoggedInUser()?.firstName ?: "Anonymous"}!"
+        // message = "Hello ${userService.loggedInUser?.firstName ?: 'Anonymous'}!"
 
         // ------------ STOP EDITING HERE  ----------------------
 
