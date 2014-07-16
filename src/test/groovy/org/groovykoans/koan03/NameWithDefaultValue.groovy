@@ -11,8 +11,9 @@ class NameWithDefaultValue {
     String name
 
     // ------------ START EDITING HERE ----------------------
-
-
-    // ------------ STOP EDITING HERE  ----------------------
+    String getName() {
+        return name?:'Anonymous'
+    }
+// ------------ STOP EDITING HERE  ----------------------
 
 }
