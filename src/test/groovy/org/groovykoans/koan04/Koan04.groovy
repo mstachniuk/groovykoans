@@ -139,6 +139,11 @@ class Koan04 extends GroovyTestCase {
                 filteredResult.append('\n')
             }
         }
+        // Review
+//        def file = new File("$prefix/exercise.txt")
+//        file.filterLine(filteredResult) { String line ->
+//            !line.startsWith('#')
+//        }
 
         // ------------ STOP EDITING HERE  ----------------------
 
