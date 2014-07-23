@@ -35,10 +35,10 @@ class Koan06 extends GroovyTestCase {
         String groovyResult
         // ------------ START EDITING HERE ----------------------
         groovyResult = new StringBuilder().with {
-            append("roses are #FF0000\\n")
-            append("violets are #0000FF\\n")
-            append("all my base\\n")
-            append("are belong to you\\n")
+            append(/roses are #FF0000\n/)
+            append(/violets are #0000FF\n/)
+            append(/all my base\n/)
+            append(/are belong to you\n/)
         }
 
         // ------------ STOP EDITING HERE  ----------------------
@@ -56,7 +56,6 @@ class Koan06 extends GroovyTestCase {
         def uniqueTypes = []
         // ------------ START EDITING HERE ----------------------
         uniqueTypes = differentTypes.collect { it.class }.unique()
-
         // ------------ STOP EDITING HERE  ----------------------
         assert uniqueTypes == [Integer, String]
     }
@@ -70,15 +69,10 @@ class Koan06 extends GroovyTestCase {
         int count = 0
         // ------------ START EDITING HERE ----------------------
         new File("src").eachFileRecurse {
-            if (it.isFile()) {
-                it.any {
-                    if (it.contains('Lorem')) {
-                        count++;
-                    }
-                }
+            if (it.isFile() && it.text.contains('Lorem') ) {
+                count++;
             }
         }
-
         // ------------ STOP EDITING HERE  ----------------------
         assert count == 3
 
@@ -89,10 +83,8 @@ class Koan06 extends GroovyTestCase {
         // range objects, store all the prime numbers between 200 and 250 in the target variable
         def primesBetween200And250 = []
         // ------------ START EDITING HERE ----------------------
-        (200..250).each { x->
-            if ((2..Math.sqrt(x)).every { x % it != 0}) {
-                primesBetween200And250.add x
-            }
+        primesBetween200And250 = (200..250).findAll { x ->
+            (2..Math.sqrt(x)).every { x % it != 0 }
         }
 
         // ------------ STOP EDITING HERE  ----------------------
