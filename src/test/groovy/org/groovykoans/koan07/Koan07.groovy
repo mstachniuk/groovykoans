@@ -33,7 +33,7 @@ class Koan07 extends GroovyTestCase {
         def regexp
         // ------------ START EDITING HERE ----------------------
         regexp = /^G[\w]*[es][\w]*/
-
+        // review: regexp = '^G.*[e|s]$'
         // ------------ STOP EDITING HERE  ----------------------
         def result = technologies.findAll { it ==~ regexp }
 
@@ -121,6 +121,11 @@ and can become difficult to maintain"""
         firstNamesList = names.findAll(/([\w]+)[ ]/) {match, name ->
             name
         }
+        //Review:
+//        def matcher = names =~ /(\w+)\s(\w+)/
+//        matcher.each { match, first, last ->
+//            firstNamesList << first
+//        }
         // ------------ STOP EDITING HERE  ----------------------
         assert firstNamesList == ['John', 'Paul', 'George', 'Ringo']
 
@@ -152,7 +157,8 @@ and can become difficult to maintain"""
         result = song.replaceAll(/town|man|life/, {match ->
             dictionary[match]
         })
-
+        //Review:
+        // result = song.replaceAll(/\w+/) { dictionary[it] ?: it }
         // ------------ STOP EDITING HERE  ----------------------
 
         def expected = '''|In the ciudad where I was born
