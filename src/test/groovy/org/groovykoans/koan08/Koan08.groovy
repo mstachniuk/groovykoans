@@ -31,10 +31,12 @@ class Koan08 extends GroovyTestCase {
                 def result;
                 switch (input) {
                     case Integer:
+                        // case 1..100:
                         result = input / 2;
                         break;
                     case ~/.*ee$/:
                         result = (input.substring(0, input.length() - 1)) + 'y';
+                        // result = "${input[0..input.size() - 3]}ey"
                         break;
                     default:
                         result = input;

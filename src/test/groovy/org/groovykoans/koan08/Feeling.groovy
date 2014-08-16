@@ -11,19 +11,25 @@ public enum Feeling {
     Happy, Sad, Neutral, Suicidal, Anticipation, Surprised, Relaxed, Guilty
 
     // ------------ START EDITING HERE ----------------------
-    public boolean isCase(Object switchValue) {
-        def result = false;
-        switch (switchValue) {
-            case Cartoon:
-                result = this.equals(switchValue.feeling)
-                break;
-            case Person:
-                result = switchValue.feelings?.contains(this)
-                break;
-        }
-        return result;
+//    public boolean isCase(Object switchValue) {
+//        def result = false;
+//        switch (switchValue) {
+//            case Cartoon:
+//                result = this.equals(switchValue.feeling)
+//                break;
+//            case Person:
+//                result = switchValue.feelings?.contains(this)
+//                break;
+//        }
+//        return result;
+//    }
+    boolean isCase(Person person) {
+        person.feelings.contains(this)
     }
 
+    boolean isCase(Cartoon animal) {
+        animal.feeling == this
+    }
     // ------------ STOP EDITING HERE  ----------------------
 
 
