@@ -36,6 +36,7 @@ class Robot {
                 it.toLowerCase()
             }
             methodNames.each { "$it"()}
+            // review InvokerHelper.getMetaClass(this).invokeMethod(this, action.toLowerCase(), null)
         }
     }
 

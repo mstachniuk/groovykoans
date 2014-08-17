@@ -34,6 +34,7 @@ class Koan09 extends GroovyTestCase {
         expando.firstName = "Jon"
         expando.sayHello = {
             return "Hello from ${firstName}"
+            // don't need return
         }
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -165,16 +166,13 @@ class Koan09 extends GroovyTestCase {
         // ------------ START EDITING HERE ----------------------
         Integer.metaClass.fizzBuzz = {
             String result = ""
-            boolean isFizzOrBuzz = false;
             if(delegate % 3 == 0) {
                 result = "Fizz"
-                isFizzOrBuzz = true;
             }
             if(delegate % 5 == 0) {
                 result += "Buzz"
-                isFizzOrBuzz = true;
             }
-            if(!isFizzOrBuzz) {
+            if(!result) {
                 result = delegate;
             }
             result
