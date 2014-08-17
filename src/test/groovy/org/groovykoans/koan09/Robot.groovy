@@ -11,7 +11,33 @@ import org.codehaus.groovy.runtime.InvokerHelper
 
 class Robot {
     // ------------ START EDITING HERE ----------------------
+    int x
+    int y
 
+    def left() {
+        x--;
+    }
+
+    def right() {
+        x++;
+    }
+
+    def up() {
+        y++;
+    }
+
+    def down() {
+        y--;
+    }
+
+    def invokeMethod(String name, args) {
+        if(name ==~ /^go.*/) {
+            def methodNames = name.findAll(/[A-Z][a-z]*/) {
+                it.toLowerCase()
+            }
+            methodNames.each { "$it"()}
+        }
+    }
 
     // ------------ STOP EDITING HERE  ----------------------
 }
