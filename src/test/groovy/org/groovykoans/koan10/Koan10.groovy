@@ -49,6 +49,7 @@ class Koan10 extends GroovyTestCase {
                 moviesWithThe.add(it.toString())
             }
         }
+        // review: movies.movie.title.findAll {}
         // ------------ STOP EDITING HERE  ----------------------
         assert moviesWithThe.containsAll(['Conan the Barbarian', 'The Expendables', 'The Terminator'])
 
@@ -59,7 +60,7 @@ class Koan10 extends GroovyTestCase {
         movies.movie.@id.each {
             if(Integer.parseInt(it.toString()) > 5) movieIdsGreaterThan5++
         }
-
+        // review: movieIdsGreaterThan5 = movies.movie.findAll { it.@id.text().toInteger() > 5 }.size()
         // ------------ STOP EDITING HERE  ----------------------
         assert movieIdsGreaterThan5 == 2
     }
@@ -84,9 +85,11 @@ class Koan10 extends GroovyTestCase {
             }
             compareYear
         }
+        //review movies.movie.list().sort {node1, node2 -> ...}
         moviesList.each {
             sortedList.add(it.title.text())
         }
+        //review moviesList.collect { it.title.text() }
         // ------------ STOP EDITING HERE  ----------------------
         assert sortedList == ['Conan the Barbarian', 'The Terminator', 'Predator',
                 'Kindergarten Cop', 'Total Recall', 'True Lies', 'The Expendables']
